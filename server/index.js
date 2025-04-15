@@ -4,9 +4,12 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 const messagesRoute = require("./routes/messagesRoute");
 const socket = require("socket.io");
+const job = require("./cron");
 
 const app = express();
 require("dotenv").config();
+
+job.start();
 
 app.use(cors());
 app.use(express.json());
